@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+
+  test-versioner:
+    name: Version Test
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout code
+      uses: craig8/versioner@v1
