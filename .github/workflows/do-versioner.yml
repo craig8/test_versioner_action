@@ -13,7 +13,5 @@ jobs:
     name: Version Test
     runs-on: ubuntu-22.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
     - name: Version Default
       uses: craig8/versioner@v1
