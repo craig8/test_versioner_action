@@ -13,12 +13,31 @@ jobs:
     name: Version Test
     runs-on: ubuntu-22.04
     steps:
+    - name: Echo Context
+      run: |
+        echo ${{ github }}
     - name: Version Default
       id: new_version
       uses: craig8/versioner@main
+      # with:
+      #   # enable-github-release: true
+      #   enable-publish-pypi: true
+    - name: Do github release
+      uses: ncipollo/release-action@v1
       with:
-        # enable-github-release: true
-        enable-publish-pypi: true
+        artifacts: "dist/*.gz,dist/*.whl"
+        artifactErrorsFailBuild: true
+        generateReleaseNotes: true
+        commit: ${{ github.ref }}
+        prerelease: true
+        tag: "v${{ steps.new_version.outputs.new-version }}"
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: publish to pypi
+        if: github.repository == 'eclipse-volttron/volttron-core'
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+          poetry publish
     - name: New Version Output
       run: |
         echo "The new version is: ${{ steps.new_version.outputs.new-version }}"
+
