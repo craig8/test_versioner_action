@@ -1,0 +1,11 @@
+{
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "craig8/test_versioner_action": {
+                    "permissions": "write-all"
+                }
+            }
+        }
+    }
+}
