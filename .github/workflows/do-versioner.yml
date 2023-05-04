@@ -14,4 +14,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Version Default
+      id: new_version
       uses: craig8/versioner@main
+    - name: New Version Output
+      run: |
+        echo "The new version is: ${{ new-version.outputs.new-version }}"
