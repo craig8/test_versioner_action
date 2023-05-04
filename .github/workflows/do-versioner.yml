@@ -18,4 +18,4 @@ jobs:
       uses: craig8/versioner@main
     - name: New Version Output
       run: |
-        echo "The new version is: ${{ steps.new-version.outputs }}"
+        echo "The new version is: ${{ steps.new_version.outputs.new-version }}"
