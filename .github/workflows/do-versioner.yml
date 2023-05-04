@@ -18,7 +18,7 @@ jobs:
       uses: craig8/versioner@main
       with:
         enable-github-release: true
-        enable-pypi-publish: true
+        enable-publish-pypi: true
     - name: New Version Output
       run: |
         echo "The new version is: ${{ steps.new_version.outputs.new-version }}"
