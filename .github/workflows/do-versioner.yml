@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Version Default
-      uses: craig8/versioner@v1
+      uses: craig8/versioner@main
