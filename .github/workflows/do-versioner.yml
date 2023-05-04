@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: Echo Context
       run: |
-        echo ${{ github }}
+        echo ${{ toJSON(github) }}
     - name: Version Default
       id: new_version
       uses: craig8/versioner@main
